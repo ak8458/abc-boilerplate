@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:www.ab.bluecross.ca)"
+      "WebFetch(domain:www.ab.bluecross.ca)",
+      "Bash(node:*)",
+      "WebFetch(domain:www.aem.live)",
+      "Bash(gh extension:*)",
+      "Bash(gh upskill:*)"
     ]
   }
 }
