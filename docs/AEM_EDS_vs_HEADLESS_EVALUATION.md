@@ -10,15 +10,16 @@
 ## Table of Contents
 
 1. [Executive Summary](#1-executive-summary)
-2. [High-Level Architecture Diagrams](#2-high-level-architecture-diagrams)
-3. [Technology Comparison](#3-technology-comparison)
-4. [Operational Differences](#4-operational-differences)
-5. [Personalization Differences](#5-personalization-differences)
-6. [EDS Only: Pros and Cons](#6-eds-only-pros-and-cons)
-7. [Headless Only: Pros and Cons](#7-headless-only-pros-and-cons)
-8. [Hybrid (EDS + Headless): Pros and Cons](#8-hybrid-eds--headless-pros-and-cons)
-9. [Sample Use Cases for Hybrid Approach](#9-sample-use-cases-for-hybrid-approach)
-10. [References](#10-references)
+2. [Glossary](#2-glossary)
+3. [High-Level Architecture Diagrams](#3-high-level-architecture-diagrams)
+4. [Technology Comparison](#4-technology-comparison)
+5. [Operational Differences](#5-operational-differences)
+6. [Personalization Differences](#6-personalization-differences)
+7. [EDS Only: Pros and Cons](#7-eds-only-pros-and-cons)
+8. [Headless Only: Pros and Cons](#8-headless-only-pros-and-cons)
+9. [Hybrid (EDS + Headless): Pros and Cons](#9-hybrid-eds--headless-pros-and-cons)
+10. [Sample Use Cases for Hybrid Approach](#10-sample-use-cases-for-hybrid-approach)
+11. [References](#11-references)
 
 ---
 
@@ -45,13 +46,27 @@ Choose based on your organization’s existing tools, training requirements, and
 
 ---
 
-## 2. High-Level Architecture Diagrams
+## 2. Glossary
+
+| Term | Definition |
+|------|------------|
+| **AEM (Adobe Experience Manager)** | Adobe's enterprise CMS platform for managing and delivering digital experiences. |
+| **AEMaaCS (AEM as a Cloud Service)** | Cloud-native version of AEM with managed infrastructure, auto-scaling, and continuous updates. |
+| **Edge Delivery Services (EDS)** | A performance-optimized web delivery layer that serves content at the CDN edge. Focused on fast HTML delivery and simplified frontend development. |
+| **Headless (AEM Headless)** | An API-first approach where structured content (via Content Fragments) is delivered as JSON (typically GraphQL) to apps, SPAs, or external systems. |
+| **Content Fragment** | A structured, reusable content model in AEM used for headless delivery. |
+| **GraphQL** | API layer used in AEM Headless to query structured content as JSON. |
+| **Hybrid Architecture** | Combining EDS for web delivery and Headless APIs for structured content and multi-channel consumption. |
+
+---
+
+## 3. High-Level Architecture Diagrams
 
 All diagrams are in Mermaid format for use in Markdown viewers and CI/docs pipelines.
 
 ---
 
-### 2.1 EDS Only (Edge Delivery Services)
+### 3.1 EDS Only (Edge Delivery Services)
 
 Content and code flow from various sources into Adobe's storage and edge compute; the customer CDN serves the final experience. No AEM Publish in the path.
 
@@ -98,7 +113,7 @@ flowchart TB
 
 ---
 
-### 2.2 Headless Only (AEM Headless)
+### 3.2 Headless Only (AEM Headless)
 
 Classic Author → Publish (and optional Preview) with Dispatcher; client applications consume content via GraphQL.
 
@@ -133,7 +148,7 @@ flowchart LR
 
 ---
 
-### 2.3 Hybrid: EDS and Headless Working Together
+### 3.3 Hybrid: EDS and Headless Working Together
 
 EDS powers the main website (and can consume AEM or Content Fragments); the same or related content is also exposed via GraphQL for apps. AEM Author feeds both paths.
 
@@ -211,7 +226,7 @@ flowchart LR
 
 ---
 
-## 3. Technology Comparison
+## 4. Technology Comparison
 
 | Dimension | AEM Edge Delivery Services | AEM Headless |
 |-----------|----------------------------|--------------|
@@ -228,7 +243,7 @@ References: [AEM Architecture](https://www.aem.live/docs/architecture), [Archite
 
 ---
 
-## 4. Operational Differences
+## 5. Operational Differences
 
 ### Configuration-Based vs. Code-Based Architecture
 
@@ -249,7 +264,7 @@ References: [Configuration Service](https://www.aem.live/docs/config-service-set
 
 ---
 
-## 5. Personalization Differences
+## 6. Personalization Differences
 
 ### EDS Personalization
 
@@ -289,7 +304,7 @@ In a hybrid scenario:
 
 ---
 
-## 6. EDS Only: Pros and Cons
+## 7. EDS Only: Pros and Cons
 
 ### Pros
 
@@ -310,7 +325,7 @@ In a hybrid scenario:
 
 ---
 
-## 7. Headless Only: Pros and Cons
+## 8. Headless Only: Pros and Cons
 
 ### Pros
 
@@ -331,7 +346,7 @@ In a hybrid scenario:
 
 ---
 
-## 8. Hybrid (EDS + Headless): Pros and Cons
+## 9. Hybrid (EDS + Headless): Pros and Cons
 
 ### Pros
 
@@ -350,7 +365,7 @@ In a hybrid scenario:
 
 ---
 
-## 9. Sample Use Cases for Hybrid Approach
+## 10. Sample Use Cases for Hybrid Approach
 
 1. **Marketing site + member/app portal**  
    - **EDS:** Marketing homepage, landing pages, blog, SEO-critical content (semantic HTML, fast).  
@@ -380,7 +395,7 @@ References: [AEM Sites and Edge Delivery Services](https://experienceleague.adob
 
 ---
 
-## 10. References
+## 11. References
 
 | Resource | URL |
 |----------|-----|
