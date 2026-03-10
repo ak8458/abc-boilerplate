@@ -3,25 +3,66 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
   background-color: var(--background-color);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-s);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.cards > ul > li:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-l);
+  border-color: transparent;
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  padding: 20px 24px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards .cards-card-body h3,
+.cards .cards-card-body h2 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-size: var(--heading-font-size-s);
+  color: var(--text-color);
+}
+
+.cards .cards-card-body p {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-s);
+  line-height: 1.6;
+  margin-top: 0;
+  flex: 1;
+}
+
+.cards .cards-card-body .button-container {
+  margin-top: 16px;
 }
 
 .cards .cards-card-image {
   line-height: 0;
+  overflow: hidden;
 }
 
 .cards > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.cards > ul > li:hover img {
+  transform: scale(1.03);
 }

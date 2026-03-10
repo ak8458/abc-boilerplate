@@ -1,10 +1,13 @@
 .columns > div {
   display: flex;
   flex-direction: column;
+  gap: 32px;
 }
 
 .columns img {
   width: 100%;
+  border-radius: var(--radius-l);
+  display: block;
 }
 
 .columns > div > div {
@@ -13,17 +16,36 @@
 
 .columns > div > .columns-img-col {
   order: 0;
+  overflow: hidden;
+  border-radius: var(--radius-l);
 }
 
 .columns > div > .columns-img-col img {
   display: block;
+  width: 100%;
+  transition: transform 400ms ease;
+}
+
+.columns > div > .columns-img-col:hover img {
+  transform: scale(1.02);
+}
+
+.columns > div > div:not(.columns-img-col) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.columns > div > div:not(.columns-img-col) h2,
+.columns > div > div:not(.columns-img-col) h3 {
+  margin-top: 0;
 }
 
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    flex-direction: row;
+    gap: 56px;
   }
 
   .columns > div > div {
